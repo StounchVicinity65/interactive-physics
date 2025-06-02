@@ -9,7 +9,7 @@ function setup() {
 
 function resetAcceleration() {
   accBall = {
-    x: 150,
+    x: 50,
     y: height / 2,
     velocity: 0,
     acceleration: parseFloat(accelerationInput.value)
