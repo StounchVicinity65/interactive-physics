@@ -11,8 +11,8 @@ function launchProjectile() {
   let angle = radians(parseFloat(angleInput.value));
   let speed = parseFloat(speedInput.value);
   projectile = {
-    x: 100,
-    y: height - 100,
+    x: 120,
+    y: height - 120,
     vx: speed * cos(angle),
     vy: -speed * sin(angle),
     t: 0
