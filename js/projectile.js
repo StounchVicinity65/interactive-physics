@@ -1,35 +1,39 @@
 let angleInput, speedInput;
-let x = 0, y = 0;
-let angle = 45;
-let speed = 10;
-let time = 0;
-let launched = false;
+let projectile = null;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight * 0.75);
-  angleInput = document.getElementById("angle");
-  speedInput = document.getElementById("speed");
+  createCanvas(windowWidth - 240, windowHeight);
+  angleInput = document.getElementById('angle');
+  speedInput = document.getElementById('speed');
+}
+
+function launchProjectile() {
+  let angle = radians(parseFloat(angleInput.value));
+  let speed = parseFloat(speedInput.value);
+  projectile = {
+    x: 50,
+    y: height - 50,
+    vx: speed * cos(angle),
+    vy: -speed * sin(angle),
+    t: 0
+  };
 }
 
 function draw() {
   background(240);
-  if (launched) {
-    let rad = radians(angle);
-    x = speed * cos(rad) * time;
-    y = speed * sin(rad) * time - 0.5 * 9.8 * time * time;
+  fill(255, 50, 50);
+  noStroke();
 
-    ellipse(x + 50, height - y - 50, 20);
-    time += 0.05;
-
-    if (height - y - 50 > height) launched = false;
+  if (projectile) {
+    projectile.t += 0.1;
+    let x = projectile.x + projectile.vx * projectile.t;
+    let y = projectile.y + projectile.vy * projectile.t + 0.5 * 9.8 * sq(projectile.t);
+    ellipse(x, y, 40);  // Bigger projectile with diameter 40
+    
+    // Stop animation when projectile goes below ground
+    if (y > height) {
+      projectile = null;
+    }
   }
 }
 
-function launchProjectile() {
-  angle = parseFloat(angleInput.value);
-  speed = parseFloat(speedInput.value);
-  x = 0;
-  y = 0;
-  time = 0;
-  launched = true;
-}
