@@ -1,29 +1,13 @@
-let particles = [], isSimulating = false;
-function setup() {
-  createCanvas(windowWidth - 240, windowHeight);
-}
-function simulateFusion() {
-  particles = [];
-  for (let i = 0; i < 10; i++) {
-    particles.push(createVector(random(width), random(height)));
-  }
-  isSimulating = true;
-}
-function draw() {
-  background(20);
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Nuclear Fusion</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="js/fusion.js"></script>
+</head>
+<body>
+  <h1>Nuclear Fusion Simulation</h1>
+</body>
+</html>
 
-  if (isSimulating) {
-    noStroke();
-    for (let p of particles) {
-      fill(255, 150, 0);
-      ellipse(p.x, p.y, 20);
-      p.x += random(-2, 2);
-      p.y += random(-2, 2);
-
-      if (dist(p.x, p.y, width / 2, height / 2) < 30) {
-        fill(255, 255, 0);
-        ellipse(width / 2, height / 2, 60);
-      }
-    }
-  }
-}
