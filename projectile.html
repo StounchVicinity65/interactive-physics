@@ -1,42 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projectile Motion Simulation</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      text-align: center;
-      background: #f0f0f0;
+let angleInput, speedInput;
+let projectile;
+let path = [];
+
+function setup() {
+  createCanvas(windowWidth - 240, windowHeight);
+  angleInput = document.getElementById('angle');
+  speedInput = document.getElementById('speed');
+}
+
+function launchProjectile() {
+  let angle = radians(float(angleInput.value));
+  let speed = float(speedInput.value);
+  projectile = {
+    x: 50,
+    y: height - 50,
+    vx: speed * cos(angle),
+    vy: -speed * sin(angle),
+    t: 0
+  };
+  path = []; // reset trail
+}
+
+function draw() {
+  background(230);
+
+  // Ground
+  fill(120, 200, 120);
+  rect(0, height - 40, width, 40);
+
+  if (projectile) {
+    projectile.t += 0.1;
+    let x = projectile.x + projectile.vx * projectile.t;
+    let y = projectile.y + projectile.vy * projectile.t + 0.5 * 9.8 * sq(projectile.t);
+
+    // Add current position to trail
+    path.push({x, y});
+
+    // Draw trail
+    stroke(255, 100, 0);
+    noFill();
+    beginShape();
+    for (let pt of path) {
+      vertex(pt.x, pt.y);
     }
-    #controls {
-      margin: 1rem;
-    }
-    canvas {
-      border: 1px solid #ccc;
-      display: block;
-      margin: auto;
-    }
-  </style>
-</head>
-<body>
+    endShape();
 
-  <h1>Projectile Motion</h1>
-
-  <div id="controls">
-    <label>Angle: <input type="number" id="angle" value="45">°</label>
-    <label>Speed: <input type="number" id="speed" value="10"> units</label>
-    <button onclick="launchProjectile()">Launch</button>
-  </div>
-
-  
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-
-  
-  <script src="js/projectile.js"></script>
-
-</body>
-</html>
+    // Draw projectile
+    noStroke();
+    fill(255, 0, 0);
+    ellipse(x, y, 30);
+  }
+}
 
