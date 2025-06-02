@@ -1,38 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fusion Simulation</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      text-align: center;
-      background: #f0f0f0;
+let particles = [], isSimulating = false;
+
+function setup() {
+  createCanvas(windowWidth - 240, windowHeight);
+}
+
+function simulateFusion() {
+  particles = [];
+  for (let i = 0; i < 10; i++) {
+    particles.push(createVector(random(width), random(height)));
+  }
+  isSimulating = true;
+}
+
+function draw() {
+  background(20);
+
+  if (isSimulating) {
+    noStroke();
+    for (let p of particles) {
+      fill(255, 150, 0);
+      ellipse(p.x, p.y, 20);
+      p.x += random(-2, 2);
+      p.y += random(-2, 2);
+
+      if (dist(p.x, p.y, width / 2, height / 2) < 30) {
+        fill(255, 255, 0);
+        ellipse(width / 2, height / 2, 60);
+      }
     }
-    #controls {
-      margin: 1rem;
-    }
-    canvas {
-      border: 1px solid #ccc;
-      display: block;
-      margin: auto;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Fusion</h1>
-
-  <div id="controls">
-    <label>Temperature (million K): <input type="number" id="temperature" value="15"></label>
-    <label>Pressure (atm): <input type="number" id="pressure" value="100"></label>
-    <button onclick="simulateFusion()">Simulate</button>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-  <script src="js/fusion.js"></script>
-
-</body>
-</html>
+  }
+}
