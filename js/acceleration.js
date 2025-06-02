@@ -9,7 +9,7 @@ function setup() {
 
 function resetAcceleration() {
   accBall = {
-    x: 50,
+    x: 150,
     y: height / 2,
     velocity: 0,
     acceleration: parseFloat(accelerationInput.value)
@@ -27,3 +27,4 @@ function draw() {
 
   if (accBall.x > width) accBall.x = 0;
 }
+
