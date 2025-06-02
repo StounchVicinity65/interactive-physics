@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Work</title>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-  <script src="js/work.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Simulation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+    }
+    #controls {
+      margin: 1rem;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      display: block;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Work Simulation</h1>
+
+  <h1>Work</h1>
+
+  <div id="controls">
+    <label>Force (N): <input type="number" id="force" value="10"></label>
+    <label>Displacement (m): <input type="number" id="displacement" value="5"></label>
+    <label>Angle (°): <input type="number" id="angle" value="0"></label>
+    <button onclick="simulateWork()">Simulate</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="js/work.js"></script>
+
 </body>
 </html>
