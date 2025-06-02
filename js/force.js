@@ -1,25 +1,32 @@
-let force = 10, mass = 2;
-let velocity = 0, position = 50;
-
-function simulateForce() {
-  force = 10;
-  mass = 2;
-  velocity = 0;
-  position = 50;
-}
+let forceBall;
+let forceInput, massInput;
 
 function setup() {
   createCanvas(windowWidth - 240, windowHeight);
+  forceInput = document.getElementById('force');
+  massInput = document.getElementById('mass');
+  resetForce();
+}
+
+function resetForce() {
+  let f = parseFloat(forceInput.value);
+  let m = parseFloat(massInput.value);
+  forceBall = {
+    x: 50,
+    y: height / 2,
+    velocity: 0,
+    acceleration: f / m
+  };
 }
 
 function draw() {
   background(240);
-  let acceleration = force / mass;
-  velocity += acceleration * 0.1;
-  position += velocity;
 
-  fill(255, 100, 100);
-  ellipse(position, height / 2, 50);
+  forceBall.velocity += forceBall.acceleration * 0.1;
+  forceBall.x += forceBall.velocity;
 
-  if (position > width) position = 0;
+  fill(200, 100, 255);
+  ellipse(forceBall.x, forceBall.y, 40);
+
+  if (forceBall.x > width) forceBall.x = 0;
 }
