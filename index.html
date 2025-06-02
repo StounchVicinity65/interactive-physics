@@ -1,11 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Physics Simulation</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-  </head>
-  <body>
-    <script src="ball_moving.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Physics Simulations</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+    }
+    h1 {
+      margin-top: 2rem;
+    }
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .menu a {
+      display: block;
+      padding: 1rem 2rem;
+      background: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+    .menu a:hover {
+      background: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔬 Interactive Physics Simulations</h1>
+  <div class="menu">
+    <a href="projectile.html">Projectile Motion</a>
+    <a href="buoyancy.html">Buoyancy</a>
+    <a href="newton.html">Newton's 2nd Law</a>
+    <a href="work.html">Work = Force × Distance</a>
+    <a href="velocity.html">Velocity & Acceleration</a>
+    <a href="fusion.html">Fusion</a>
+    <a href="fission.html">Fission</a>
+  </div>
+</body>
 </html>
