@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Interactive Physics Simulations - Main Menu</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-     margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(to right, #09203f 0%, #537895 100%);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .wrapper {
+      display: flex;
+      height: 100%;
+      background: linear-gradient(to right, #09203f 0%, #537895 100%);
     }
     nav {
       width: 220px;
-      background: #222;
+      background: rgba(0, 0, 0, 0.6); /* semi-transparent */
       color: white;
       display: flex;
       flex-direction: column;
@@ -39,7 +45,6 @@
     }
     main {
       flex-grow: 1;
-      background: #f9f9f9;
       display: flex;
       flex-direction: column;
       padding: 1rem;
@@ -56,35 +61,37 @@
 </head>
 <body>
 
-<nav>
-  <h2>Simulations</h2>
-  <a href="index.html" class="active">Main Menu</a>
-  <a href="projectile.html">Projectile Motion</a>
-  <a href="buoyancy.html">Buoyancy</a>
-  <a href="force.html">Force</a>
-  <a href="acceleration.html">Acceleration</a>
-  <a href="velocity.html">Velocity</a>
-  <a href="work.html">Work</a>
-  <a href="fusion.html">Fusion</a>
-  <a href="fission.html">Fission</a>
-</nav>
+<div class="wrapper">
+  <nav>
+    <h2>Simulations</h2>
+    <a href="index.html" class="active">Main Menu</a>
+    <a href="projectile.html">Projectile Motion</a>
+    <a href="buoyancy.html">Buoyancy</a>
+    <a href="force.html">Force</a>
+    <a href="acceleration.html">Acceleration</a>
+    <a href="velocity.html">Velocity</a>
+    <a href="work.html">Work</a>
+    <a href="fusion.html">Fusion</a>
+    <a href="fission.html">Fission</a>
+  </nav>
 
-<main>
-  <h1>Welcome to Interactive Physics Simulations</h1>
-  <div id="description">
-    <p>Select a simulation from the menu to explore physics concepts interactively.</p>
-    <ul>
-      <li>Projectile Motion</li>
-      <li>Buoyancy</li>
-      <li>Force</li>
-      <li>Acceleration</li>
-      <li>Velocity</li>
-      <li>Work</li>
-      <li>Nuclear Fusion</li>
-      <li>Nuclear Fission</li>
-    </ul>
-  </div>
-</main>
+  <main>
+    <h1 style="color: white;">Welcome to Interactive Physics Simulations</h1>
+    <div id="description">
+      <p>Select a simulation from the menu to explore physics concepts interactively.</p>
+      <ul>
+        <li>Projectile Motion</li>
+        <li>Buoyancy</li>
+        <li>Force</li>
+        <li>Acceleration</li>
+        <li>Velocity</li>
+        <li>Work</li>
+        <li>Nuclear Fusion</li>
+        <li>Nuclear Fission</li>
+      </ul>
+    </div>
+  </main>
+</div>
 
 </body>
 </html>
