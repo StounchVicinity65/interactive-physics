@@ -1,12 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Force</title>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
-  <script src="js/force.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Force Simulation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+    }
+    #controls {
+      margin: 1rem;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      display: block;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>Force Simulation</h1>
+
+  <h1>Force</h1>
+
+  <div id="controls">
+    <label>Mass (kg): <input type="number" id="mass" value="10"></label>
+    <label>Acceleration (m/s²): <input type="number" id="acceleration" value="9.8"></label>
+    <button onclick="simulateForce()">Simulate</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="js/force.js"></script>
+
 </body>
 </html>
