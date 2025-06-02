@@ -1,9 +1,7 @@
 let particles = [], isSimulating = false;
-
 function setup() {
   createCanvas(windowWidth - 240, windowHeight);
 }
-
 function simulateFusion() {
   particles = [];
   for (let i = 0; i < 10; i++) {
@@ -11,7 +9,6 @@ function simulateFusion() {
   }
   isSimulating = true;
 }
-
 function draw() {
   background(20);
 
