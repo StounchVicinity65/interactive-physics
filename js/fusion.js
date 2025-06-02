@@ -40,3 +40,4 @@ function draw() {
     fusionTriggered = false;
   }
 }
+
