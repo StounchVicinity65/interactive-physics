@@ -2,98 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Buoyancy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buoyancy Simulation</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-    nav {
-      width: 220px;
-      background: #222;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-    }
-    nav h2 {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      font-weight: normal;
-    }
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      padding: 0.5rem 0.75rem;
-      margin-bottom: 0.3rem;
-      border-radius: 4px;
-    }
-    nav a.active, nav a:hover {
-      background: #4a90e2;
-      color: white;
-    }
-    main {
-      flex-grow: 1;
-      background: #f9f9f9;
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
+      font-family: sans-serif;
+      text-align: center;
+      background: #f0f0f0;
     }
     #controls {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
-      margin-bottom: 1rem;
-      max-width: 600px;
+      margin: 1rem;
     }
-    #sketch-holder {
-      flex-grow: 1;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      font-size: 1.2rem;
-      user-select: none;
+    canvas {
+      border: 1px solid #ccc;
+      display: block;
+      margin: auto;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 </head>
 <body>
 
-<nav>
-  <h2>Simulations</h2>
-  <a href="index.html">Main Menu</a>
-  <a href="projectile.html">Projectile Motion</a>
-  <a href="buoyancy.html" class="active">Buoyancy</a>
-  <a href="force.html">Force</a>
-  <a href="acceleration.html">Acceleration</a>
-  <a href="velocity.html">Velocity</a>
-  <a href="work.html">Work</a>
-  <a href="fusion.html">Fusion</a>
-  <a href="fission.html">Fission</a>
-</nav>
-
-<main>
   <h1>Buoyancy</h1>
 
   <div id="controls">
-    <!-- Controls like sliders/buttons will go here -->
-    <p><em>Simulation controls will appear here.</em></p>
+    <label>Object Weight: <input type="number" id="weight" value="5"></label>
+    <label>Fluid Density: <input type="number" id="density" value="1"></label>
+    <button onclick="simulateBuoyancy()">Simulate</button>
   </div>
 
-  <div id="sketch-holder">
-    <p>p5.js canvas will appear here.</p>
-  </div>
-</main>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="js/buoyancy.js"></script>
 
-<script src="js/buoyancy.js"></script>
-
-</
+</body>
+</html>
