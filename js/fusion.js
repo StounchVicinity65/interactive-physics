@@ -1,49 +1,42 @@
 let particles = [];
-let fusionStarted = false;
+let temperatureInput, pressureInput;
+let fusionTriggered = false;
 
 function setup() {
   createCanvas(windowWidth - 240, windowHeight);
-  resetFusion();
-}
+  temperatureInput = document.getElementById('temperature');
+  pressureInput = document.getElementById('pressure');
 
-function resetFusion() {
-  particles = [];
   for (let i = 0; i < 10; i++) {
-    particles.push(createVector(random(width), random(height), 0));
+    particles.push({
+      pos: createVector(random(width), random(height)),
+      vel: p5.Vector.random2D().mult(random(1, 2))
+    });
   }
-  fusionStarted = false;
 }
 
-function startFusion() {
-  fusionStarted = true;
+function simulateFusion() {
+  fusionTriggered = true;
 }
 
 function draw() {
   background(20);
   noStroke();
 
-  if (!fusionStarted) {
-    fill(255, 150, 0);
-    for (let p of particles) {
-      ellipse(p.x, p.y, 20);
-      // particles move randomly before fusion starts
-      p.x += random(-1, 1);
-      p.y += random(-1, 1);
-      // keep inside canvas
-      p.x = constrain(p.x, 0, width);
-      p.y = constrain(p.y, 0, height);
-    }
-  } else {
-    // Fusion effect - particles move toward center and glow
-    fill(255, 255, 0, 200);
-    ellipse(width / 2, height / 2, 70);  // bright fusion core
+  fill(255, 150, 0);
+  for (let p of particles) {
+    ellipse(p.pos.x, p.pos.y, 20);
+    p.pos.add(p.vel);
 
-    fill(255, 150, 0);
-    for (let p of particles) {
-      // Move particles gradually toward center
-      p.x += (width / 2 - p.x) * 0.05;
-      p.y += (height / 2 - p.y) * 0.05;
-      ellipse(p.x, p.y, 20);
-    }
+    // Bounce off edges
+    if (p.pos.x < 0 || p.pos.x > width) p.vel.x *= -1;
+    if (p.pos.y < 0 || p.pos.y > height) p.vel.y *= -1;
+  }
+
+  // Fusion effect
+  if (fusionTriggered) {
+    fill(255, 255, 0, 200);
+    ellipse(width / 2, height / 2, 80);
+    fusionTriggered = false;
   }
 }
