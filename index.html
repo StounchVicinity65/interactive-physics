@@ -2,44 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Physics Simulations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Physics Simulations</title>
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
-      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #f0f0f0;
+      text-align: center;
+      padding: 2rem;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    h1 {
+      color: #333;
+      margin-bottom: 1rem;
     }
-    li {
-      margin: 1rem 0;
+    .simulation-list {
+      display: inline-block;
+      text-align: left;
+      background: white;
+      border-radius: 8px;
+      padding: 2rem 3rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    a {
-      text-decoration: none;
-      font-size: 1.5rem;
+    .simulation-list a {
+      display: block;
+      font-size: 1.2rem;
       color: #007acc;
+      text-decoration: none;
+      margin: 0.8rem 0;
+      transition: color 0.3s;
     }
-    a:hover {
+    .simulation-list a:hover {
+      color: #004f99;
       text-decoration: underline;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <h1>Physics Simulations</h1>
-  <ul>
-    <li><a href="projectile.html">Projectile Motion</a></li>
-    <li><a href="buoyancy.html">Buoyancy</a></li>
-    <li><a href="force.html">Force</a></li>
-    <li><a href="acceleration.html">Acceleration</a></li>
-    <li><a href="velocity.html">Velocity</a></li>
-    <li><a href="work.html">Work</a></li>
-    <li><a href="fusion.html">Fusion</a></li>
-    <li><a href="fission.html">Fission</a></li>
-  </ul>
+
+  <h1>Interactive Physics Simulations</h1>
+
+  <div class="simulation-list">
+    <a href="projectile.html">Projectile Motion</a>
+    <a href="buoyancy.html">Buoyancy</a>
+    <a href="force.html">Force</a>
+    <a href="acceleration.html">Acceleration</a>
+    <a href="velocity.html">Velocity</a>
+    <a href="work.html">Work</a>
+    <a href="fusion.html">Fusion</a>
+    <a href="fission.html">Fission</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Your Name - Physics Simulations Project
+  </footer>
+
 </body>
 </html>
-
