@@ -1,32 +1,26 @@
-let forceBall;
-let forceInput, massInput;
+let velBall;
+let velocityInput;
 
 function setup() {
   createCanvas(windowWidth - 240, windowHeight);
-  forceInput = document.getElementById('force');
-  massInput = document.getElementById('mass');
-  resetForce();
+  velocityInput = document.getElementById('velocity');
+  resetVelocity();
 }
 
-function resetForce() {
-  let f = parseFloat(forceInput.value);
-  let m = parseFloat(massInput.value);
-  forceBall = {
+function resetVelocity() {
+  velBall = {
     x: 50,
     y: height / 2,
-    velocity: 0,
-    acceleration: f / m
+    velocity: parseFloat(velocityInput.value)
   };
 }
 
 function draw() {
   background(240);
 
-  forceBall.velocity += forceBall.acceleration * 0.1;
-  forceBall.x += forceBall.velocity;
+  velBall.x += velBall.velocity;
+  fill(255, 100, 100);
+  ellipse(velBall.x, velBall.y, 40);
 
-  fill(200, 100, 255);
-  ellipse(forceBall.x, forceBall.y, 40);
-
-  if (forceBall.x > width) forceBall.x = 0;
+  if (velBall.x > width) velBall.x = 0;
 }
