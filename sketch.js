@@ -1,6 +1,6 @@
 function setup() {
-  createCanvas(600, 400);
-  background(0);
+  createCanvas(windowWidth, windowHeight);
+  background(50);
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
