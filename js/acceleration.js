@@ -1,16 +1,29 @@
-let velocity = 0, acceleration = 2, position = 50;
+let accBall;
+let accelerationInput;
 
 function setup() {
   createCanvas(windowWidth - 240, windowHeight);
+  accelerationInput = document.getElementById('acceleration');
+  resetAcceleration();
+}
+
+function resetAcceleration() {
+  accBall = {
+    x: 50,
+    y: height / 2,
+    velocity: 0,
+    acceleration: parseFloat(accelerationInput.value)
+  };
 }
 
 function draw() {
   background(240);
-  velocity += acceleration * 0.1;
-  position += velocity;
 
-  fill(100, 255, 100);
-  ellipse(position, height / 2, 50);
+  accBall.velocity += accBall.acceleration * 0.1;
+  accBall.x += accBall.velocity;
 
-  if (position > width) position = 0;
+  fill(100, 200, 255);
+  ellipse(accBall.x, accBall.y, 40);
+
+  if (accBall.x > width) accBall.x = 0;
 }
