@@ -1,10 +1,10 @@
-let force = 5;
-let displacement = 0;
-let work = 0;
+let forceInput, displacementInput
+let work = null;
 
 function setup() {
   createCanvas(windowWidth - 240, windowHeight);
-  displacement = 0;
+  forceInput = document.getElementById('');
+  displacementInput = document.getElementById('');
 }
 
 function draw() {
