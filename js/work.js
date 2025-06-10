@@ -3,9 +3,9 @@ let work = null;
 
 function setup() {
   createCanvas(windowWidth - 240, windowHeight);
-  forceInput = document.getElementById('Force (N)');
-  displacementInput = document.getElementById('Displacement (m)');
-  angleInput = document.getElementById('Angle (°)');
+  forceInput = document.getElementById('force');
+  displacementInput = document.getElementById('displacement');
+  angleInput = document.getElementById('angle');
 }
 
 function draw() {
